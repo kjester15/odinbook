@@ -1,9 +1,6 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+Final project for the Rails portion of The Odin Project. Project guidelines can be found here: https://www.theodinproject.com/lessons/ruby-on-rails-rails-final-project.
 
 * Ruby version
 
