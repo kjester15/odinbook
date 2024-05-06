@@ -1,4 +1,7 @@
-<%= link_to "New Post", new_post_path %>
-<%= @posts.each do |post|%>
+<%= link_to "New Post", new_post_path %><br><br>
+<% @posts.each do |post|%>
+  <%= "Post ##{post.id}"%><br>
+  <%= "Author: " %>
+  <%= post.user.email %><br>
   <%= post.content %><br>
 <% end %>
