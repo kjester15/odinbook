@@ -8,18 +8,18 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-
+    @post = current_user.posts.build(post_params)
+    puts current_user.id
     if @post.save
-      redirect_to post_path(@post.id)
+      redirect_to posts_path(@post.id)
     else
-      redirect_to new_post_path, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:content, :user_id)
+    params.require(:post).permit(:content)
   end
 end
