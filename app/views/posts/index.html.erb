@@ -5,4 +5,5 @@
   <%= "Author: " %>
   <%= post.user.email %><br>
   <%= post.content %><br>
+  <%= button_to "Like", likes_path({"like"=>{post_id: post}}) %>
 <% end %>
