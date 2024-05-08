@@ -22,11 +22,18 @@
       <% end %><br>
     </div>
     <div>
-      <% post.comments.each do |comment| %>
-        <%= comment.content %><br>
-        <%= "by: #{User.find(comment.user_id).email}" %><br><br>
+      <%= turbo_frame_tag "comments" %>
+        <% post.comments.each do |comment| %>
+          <%= comment.content %><br>
+          <%= "by: #{User.find(comment.user_id).email}" %><br><br>
+        <% end %>
+      
+      <%= turbo_frame_tag "comment_form" do %>
+        <%= form_with model: @comment, url: comments_path(post_id: post.id) do |f| %>
+          <%= f.text_area :content, placeholder:"Write a comment..." %><br>
+          <%= f.submit "Submit" %>
+        <% end %>
       <% end %>
-      <%= render "comment_form" %><br><br>
     </div>
   </div>
   <br>
