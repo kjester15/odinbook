@@ -22,17 +22,17 @@
       <% end %><br>
     </div>
     <div>
-      <%= turbo_frame_tag "comments" %>
+      <%= turbo_frame_tag "comment_form" do %>
         <% post.comments.each do |comment| %>
           <%= comment.content %><br>
-          <%= "by: #{User.find(comment.user_id).email}" %><br><br>
+          <%= "by: #{User.find(comment.user_id).email}" %>
+          <% if comment.user_id == current_user.id %>
+            <%= button_to "Delete Comment", comment_path(comment.id), method: :delete %>
+          <% end %><br>
         <% end %>
-      
+      <% end %>
       <%= turbo_frame_tag "comment_form" do %>
-        <%= form_with model: @comment, url: comments_path(post_id: post.id) do |f| %>
-          <%= f.text_area :content, placeholder:"Write a comment..." %><br>
-          <%= f.submit "Submit" %>
-        <% end %>
+        <%= render "comment_form", post_id: post.id %>
       <% end %>
     </div>
   </div>
