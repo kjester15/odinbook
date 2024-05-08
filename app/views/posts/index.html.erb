@@ -7,9 +7,10 @@
   <% if post.user_id == current_user.id %>
     <%= button_to "Delete Post", post_path(post.id), method: :delete %>
   <% end %>
-  <% if current_user.likes.where(post_id: post.id).exists? %>
-    <%= button_to "Unlike", likes_path({"like"=>{post_id: post}}) %>
-  <% else %>
+  <% like = current_user.likes.find_by(post_id: post.id) %>
+  <% if like.nil? %>
     <%= button_to "Like", likes_path({"like"=>{post_id: post}}) %>
+  <% else %>
+    <%= button_to "Unlike", like_path(like), method: :delete %>
   <% end %><br><br>
 <% end %>
