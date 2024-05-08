@@ -1,9 +1,15 @@
 <%= link_to "See all users", users_path %><br><br>
 <%= link_to "New Post", new_post_path %><br><br>
 <% @posts.each do |post|%>
-  <%= "Post ##{post.id}"%><br>
-  <%= "Author: " %>
-  <%= post.user.email %><br>
   <%= post.content %><br>
-  <%= button_to "Like", likes_path({"like"=>{post_id: post}}) %>
+  <%= "by: " %>
+  <%= post.user.email %><br>
+  <% if post.user_id == current_user.id %>
+    <%= button_to "Delete Post", post_path(post.id), method: :delete %>
+  <% end %>
+  <% if current_user.likes.where(post_id: post.id).exists? %>
+    <%= button_to "Unlike", likes_path({"like"=>{post_id: post}}) %>
+  <% else %>
+    <%= button_to "Like", likes_path({"like"=>{post_id: post}}) %>
+  <% end %><br><br>
 <% end %>
