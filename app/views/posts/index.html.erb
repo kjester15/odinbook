@@ -1,17 +1,33 @@
 <%= link_to "See all users", users_path %><br><br>
 <%= link_to "New Post", new_post_path %><br><br>
 <% @posts.each do |post|%>
-  <%= post.content %><br>
-  <%= "by: " %>
-  <%= post.user.email %><br>
-  <%= "Likes: #{post.likes.count}" %>
-  <% if post.user_id == current_user.id %>
-    <%= button_to "Delete Post", post_path(post.id), method: :delete %>
-  <% end %>
-  <% like = current_user.likes.find_by(post_id: post.id) %>
-  <% if like.nil? %>
-    <%= button_to "Like", likes_path({"like"=>{post_id: post}}) %>
-  <% else %>
-    <%= button_to "Unlike", like_path(like), method: :delete %>
-  <% end %><br><br>
+  <div class="post-container">
+    <div>
+      <%= post.content %><br>
+      <%= "by: " %>
+      <%= post.user.email %><br>
+      <%= "Likes: #{post.likes.count}" %>
+    </div>
+    <div>
+      <% if post.user_id == current_user.id %>
+        <%= button_to "Delete Post", post_path(post.id), method: :delete %>
+      <% end %>
+    </div>
+    <div>
+      <% like = current_user.likes.find_by(post_id: post.id) %>
+      <% if like.nil? %>
+        <%= button_to "Like", likes_path({"like"=>{post_id: post}}) %>
+      <% else %>
+        <%= button_to "Unlike", like_path(like), method: :delete %>
+      <% end %><br>
+    </div>
+    <div>
+      <% post.comments.each do |comment| %>
+        <%= comment.content %><br>
+        <%= "by: #{User.find(comment.user_id).email}" %><br><br>
+      <% end %>
+      <%= render "comment_form" %><br><br>
+    </div>
+  </div>
+  <br>
 <% end %>
