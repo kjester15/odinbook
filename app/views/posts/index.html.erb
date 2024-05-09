@@ -1,5 +1,7 @@
 <%= link_to "See all users", users_path %><br><br>
-<%= link_to "New Post", new_post_path %><br><br>
+<%= turbo_frame_tag "new_post" do %>
+  <%= link_to "New Post", new_post_path %><br><br>
+<% end %>
 <% @posts.each do |post|%>
   <div class="post-container">
     <div>
@@ -22,20 +24,24 @@
       <% end %><br>
     </div>
     <div>
-      <% post.comments.each do |comment| %>
-        <%= turbo_frame_tag comment do %>
-          <%= comment.content %><br>
-          <%= "by: #{User.find(comment.user_id).email}" %>
-          <% if comment.user_id == current_user.id %>
-            <%= button_to "Delete Comment", post_comment_path(post.id, comment.id), method: :delete, data: { turbo_frame: "_top" } %>
-            <%= link_to "Edit Comment", edit_post_comment_path(post.id, comment.id) %>
+      <div id="comments">
+        <% post.comments.each do |comment| %>
+          <%= turbo_frame_tag comment do %>
+            <%= comment.content %><br>
+            <%= "by: #{User.find(comment.user_id).email}" %>
+            <% if comment.user_id == current_user.id %>
+              <%= button_to "Delete Comment", post_comment_path(post.id, comment.id), method: :delete, data: { turbo_frame: "_top" } %>
+              <%= link_to "Edit Comment", edit_post_comment_path(post.id, comment.id) %>
+            <% end %>
           <% end %>
+          <br><br>
         <% end %>
-        <br><br>
-      <% end %>
-      <%= turbo_frame_tag "add_comment" do %>
-        <%= link_to "Add Comment", new_post_comment_path(post.id) %>
-      <% end %>
+      </div>
+      <div>
+        <%= turbo_frame_tag "add_comment" do %>
+          <%= link_to "Add Comment", new_post_comment_path(post.id) %>
+        <% end %>
+      </div>
     </div>
   </div>
   <br>

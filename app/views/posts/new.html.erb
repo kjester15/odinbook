@@ -1,4 +1,6 @@
-<%= form_with model: @post do |f| %>
-  <%= f.text_field :content %>
-  <%= f.submit "Post" %>
+<%= turbo_frame_tag "new_post" do %>
+  <%= form_with model: @post do |f| %>
+    <%= f.text_field :content %>
+    <%= f.submit "Post" %>
+  <% end %>
 <% end %>
