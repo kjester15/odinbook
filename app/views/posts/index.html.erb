@@ -23,12 +23,15 @@
     </div>
     <div>
       <% post.comments.each do |comment| %>
-        <%= comment.content %><br>
-        <%= "by: #{User.find(comment.user_id).email}" %>
-        <% if comment.user_id == current_user.id %>
-          <%= button_to "Delete Comment", comment_path(comment.id), method: :delete %>
-          <%= link_to "Edit Comment", edit_comment_path(comment.id) %>
-        <% end %><br><br>
+        <%= turbo_frame_tag "edit_comment" do %>
+          <%= comment.content %><br>
+          <%= "by: #{User.find(comment.user_id).email}" %>
+          <% if comment.user_id == current_user.id %>
+            <%= button_to "Delete Comment", comment_path(comment.id), method: :delete, data: { turbo_frame: "_top" } %>
+            <%= link_to "Edit Comment", edit_comment_path(comment.id) %>
+          <% end %>
+        <% end %>
+        <br><br>
       <% end %>
       <%= turbo_frame_tag "add_comment" do %>
         <%= link_to "Add Comment", new_comment_path(post_id: post.id) %>
