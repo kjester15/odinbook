@@ -9,7 +9,21 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to posts_path
     else
-      redirect_to posts_path, status: :unprocessable_entity
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @comment = Comment.find(params[:id])
+  end
+
+  def update
+    @comment = Comment.find(params[:id])
+
+    if @comment.update(comment_params)
+      redirect_to posts_path
+    else
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -22,6 +36,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.permit(:content, :post_id)
+    params.require(:comment).permit(:content, :post_id)
   end
 end
