@@ -23,7 +23,7 @@
     </div>
     <div>
       <% post.comments.each do |comment| %>
-        <%= turbo_frame_tag "edit_comment" do %>
+        <%= turbo_frame_tag comment do %>
           <%= comment.content %><br>
           <%= "by: #{User.find(comment.user_id).email}" %>
           <% if comment.user_id == current_user.id %>
