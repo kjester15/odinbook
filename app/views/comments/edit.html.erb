@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "edit_comment" do %>
-  <%= form_with model: @comment do |f| %>
+  <%= form_with model: [ @post, @comment ], url: [ @post, @comment ] do |f| %>
     <%= f.text_area :content, placeholder: @comment.content %><br>
     <%= f.submit "Submit" %>
   <% end %>
