@@ -1,0 +1,42 @@
+<div class="post-container">
+  <div>
+    <%= post.content %><br>
+      <%= "by: " %>
+      <%= post.user.email %><br>
+    <%= "Likes: #{post.likes.count}" %>
+  </div>
+  <div>
+    <% if post.user_id == current_user.id %>
+      <%= button_to "Delete Post", post_path(post.id), method: :delete %>
+    <% end %>
+  </div>
+  <div>
+    <% like = current_user.likes.find_by(post_id: post.id) %>
+    <% if like.nil? %>
+      <%= button_to "Like", likes_path({"like"=>{post_id: post}}) %>
+    <% else %>
+      <%= button_to "Unlike", like_path(like), method: :delete %>
+    <% end %><br>
+  </div>
+  <div>
+    <div id="comments">
+      <% post.comments.each do |comment| %>
+        <%= turbo_frame_tag comment do %>
+          <%= comment.content %><br>
+          <%= "by: #{User.find(comment.user_id).email}" %>
+          <% if comment.user_id == current_user.id %>
+            <%= button_to "Delete Comment", post_comment_path(post.id, comment.id), method: :delete, data: { turbo_frame: "_top" } %>
+            <%= link_to "Edit Comment", edit_post_comment_path(post.id, comment.id) %>
+          <% end %>
+        <% end %>
+        <br><br>
+      <% end %>
+    </div>
+    <div>
+      <%= turbo_frame_tag "add_comment" do %>
+        <%= link_to "Add Comment", new_post_comment_path(post.id) %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
