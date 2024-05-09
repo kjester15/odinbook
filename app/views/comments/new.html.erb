@@ -1,6 +1,5 @@
 <%= form_with model: @comment do |f| %>
   <%= f.text_area :content, placeholder:"Write a comment..." %><br>
   <%= f.hidden_field :post_id, value: params[:post_id] %>
-  <%# <%= f.hidden_field :flight_id, value: params[:flight_id] % %>
   <%= f.submit "Submit" %>
 <% end %>
