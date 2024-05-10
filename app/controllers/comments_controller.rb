@@ -9,10 +9,14 @@ class CommentsController < ApplicationController
     @comment = @post.comments.build(comment_params)
     current_user.comments << @comment
 
-    if @comment.save
-      redirect_to posts_path
-    else
-      render :new, status: :unprocessable_entity
+    respond_to do |format|
+      if @comment.save
+        # redirect_to posts_path
+        format.turbo_stream
+      else
+        # render :new, status: :unprocessable_entity
+        format.html { render :new, status: :unprocessable_entity }
+      end
     end
   end
 

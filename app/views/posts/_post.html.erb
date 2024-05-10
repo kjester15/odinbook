@@ -8,13 +8,13 @@
     <%= render "likes/like", post_id: post.id, post: post %>
   </div>
   <div>
-    <div id="comments">
+    <%= tag.div id: dom_id(Post.find(post.id)) do %>
       <% post.comments.each do |comment| %>
         <%= turbo_frame_tag comment do %>
-          <%= render "comments/comment", comment: comment, post: post %>
+          <%= render "comments/comment", comment: comment %>
         <% end %><br>
       <% end %>
-    </div>
+    <% end %>
     <div>
       <%= turbo_frame_tag "add_comment" do %>
         <%= link_to "Add Comment", new_post_comment_path(post.id) %>
