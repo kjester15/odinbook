@@ -9,7 +9,15 @@
   </div>
   <div>
     <div id="comments">
-      <%= render "comments/comment", post_id: post.id, post: post %>
+      <% post.comments.each do |comment| %>
+        <%= turbo_frame_tag comment do %>
+          <%= render "comments/comment", comment: comment %>
+          <% if comment.user_id == current_user.id %>
+            <%= button_to "Delete Comment", post_comment_path(post.id, comment.id), method: :delete, data: { turbo_frame: "_top" } %>
+            <%= link_to "Edit Comment", edit_post_comment_path(post.id, comment.id) %>
+          <% end %>
+        <% end %><br><br>
+      <% end %>
     </div>
     <div>
       <%= turbo_frame_tag "add_comment" do %>
