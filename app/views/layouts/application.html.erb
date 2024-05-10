@@ -9,8 +9,16 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
+  <header>
+  </header>
   <body>
+    <div class="header">
+      <%= button_to "Logout", destroy_user_session_path, method: :delete %><br>
+      <%= link_to "Home Feed", root_path %><br>
+      <%= link_to "Your Profile", user_path(current_user) %><br>
+      <%= link_to "User List", users_path %><br>
+      <br>
+    </div>
     <%= yield %>
   </body>
 </html>
