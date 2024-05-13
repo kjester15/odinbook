@@ -1,5 +1,5 @@
 <div class="like-container">
-  <%= "Likes: #{post.likes.count}" %>
+  <%= "#{post.likes.count} Likes" %>
   <% like = current_user.likes.find_by(post_id: post.id) %>
   <% if like.nil? %>
     <%= button_to "Like", likes_path({"like"=>{post_id: post}}) %>

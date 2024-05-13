@@ -1,11 +1,25 @@
 <div class="post-container">
-  <div>
-    <%= post.content %><br>
-    <%= "by: " %>
-    <%= post.user.email %><br>
+  <div class="post-header">
+    <div class="user">
+      <%# current user picture %>
+      <%= post.user.email %><br>
+    </div>
+    <div class="post-menu">
+      <% if post.user_id == current_user.id %>
+        <%= button_to "Delete Post", post_path(post.id), method: :delete %>
+      <% end %>
+    </div>
   </div>
-  <div id="likes">
-    <%= render "likes/like", post_id: post.id, post: post %>
+  <div class="content">
+    <%= post.content %><br>
+  </div>
+  <div class="like-comment-count">
+    <div>
+      <%= render "likes/like", post_id: post.id, post: post %>
+    </div>
+    <div>
+      <%= "#{post.comments.count} Comments"%>
+    </div>
   </div>
   <div>
     <%= tag.div id: dom_id(Post.find(post.id)) do %>
@@ -21,11 +35,6 @@
       <% end %>
     <% end %>
     <br>
-  </div>
-  <div>
-    <% if post.user_id == current_user.id %>
-      <%= button_to "Delete Post", post_path(post.id), method: :delete %>
-    <% end %>
   </div>
 </div>
 <br>
