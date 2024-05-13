@@ -41,17 +41,23 @@ body {
   align-items: center;
   height: 100vh;
 }
+
 .post-container {
-  background-color: #f8f8f8;
-  width: 50vw;
-  border-radius: 15px;
-  box-shadow: 1px 1px 1px 1px rgba(195, 195, 195, 0.567);
   display: grid;
   align-items: center;
 }
 
 .new-post {
-  padding: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.post-container, .new-post {
+  box-shadow: 1px 1px 1px 1px rgba(195, 195, 195, 0.567);
+  background-color: #f8f8f8;
+  width: 50vw;
+  padding: 20px;
+  border-radius: 15px;
 }
 
 .user {
@@ -61,11 +67,9 @@ body {
 .post-header {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
 }
 
 .like-comment-count {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
 }
