@@ -1,13 +1,17 @@
 <div class="post-container">
   <div class="post-header">
     <div class="user">
-      <%# current user picture %>
+      <%= "[pfp]" %>
       <%= post.user.email %><br>
     </div>
     <div class="post-menu">
       <% if post.user_id == current_user.id %>
-        <%= link_to "Edit", edit_post_path(post.id) %>
-        <%= button_to "Delete", post_path(post.id), method: :delete %>
+        <div>
+          <%= link_to "Edit", edit_post_path(post.id) %>
+        </div>
+        <div>
+          <%= button_to "Delete", post_path(post.id), method: :delete %>
+        </div>
       <% end %>
     </div>
   </div>
@@ -16,26 +20,32 @@
   </div>
   <div class="like-comment-count">
     <div>
-      <%= render "likes/like", post_id: post.id, post: post %>
+      <% like_text = post.likes.count == 1 ? "Like" : "Likes" %>
+      <%= "#{post.likes.count} #{like_text}" %>
     </div>
     <div>
       <%= "#{post.comments.count} Comments"%>
     </div>
   </div>
-  <div>
-    <%= tag.div id: dom_id(Post.find(post.id)) do %>
-      <% post.comments.each do |comment| %>
-        <%= turbo_frame_tag comment do %>
-          <%= render "comments/comment", comment: comment %>
-        <% end %><br>
-      <% end %>
-    <% end %>
-    <%= tag.div id: dom_id(Post.find(post.id), :add) do %>
-      <%= turbo_frame_tag "add_comment" do %>
-        <%= link_to "Add Comment", new_post_comment_path(post.id) %>
-      <% end %>
-    <% end %>
-    <br>
+  <div class="like-comment">
+    <div>
+      <%= render "likes/like", post_id: post.id, post: post %>
+    </div>
+    <div>
+      <%= "comment button" %>
+    </div>
   </div>
+  <%= tag.div id: dom_id(Post.find(post.id)) do %>
+    <% post.comments.each do |comment| %>
+      <%= turbo_frame_tag comment do %>
+        <%= render "comments/comment", comment: comment %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <%= tag.div id: dom_id(Post.find(post.id), :add) do %>
+    <%= turbo_frame_tag "add_comment" do %>
+      <%= link_to "Add Comment", new_post_comment_path(post.id) %>
+    <% end %>
+  <% end %>
 </div>
 <br>

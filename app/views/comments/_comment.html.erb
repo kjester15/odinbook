@@ -1,8 +1,20 @@
 <div id="comments">
-  <%= comment.content %><br>
-  <%= "by: #{User.find(comment.user_id).email}" %>
-  <% if comment.user_id == current_user.id %>
-    <%= button_to "Delete Comment", post_comment_path(comment.post_id, comment.id), method: :delete, data: { turbo_frame: "_top" } %>
-    <%= link_to "Edit Comment", edit_post_comment_path(comment.post_id, comment.id) %>
-  <% end %>
+  <div class="comment-header">
+    <div>
+      <%= "[pfp] #{User.find(comment.user_id).email}" %>
+    </div>
+    <div class="comment-menu">
+      <% if comment.user_id == current_user.id %>
+        <div>
+          <%= link_to "Edit", edit_post_comment_path(comment.post_id, comment.id) %>
+        </div>
+        <div>
+          <%= button_to "Delete", post_comment_path(comment.post_id, comment.id), method: :delete, data: { turbo_frame: "_top" } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <%= comment.content %>
+  </div>
 </div>

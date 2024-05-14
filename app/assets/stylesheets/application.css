@@ -44,7 +44,7 @@ body {
 
 .post-container {
   display: grid;
-  align-items: center;
+  grid-template-rows: 50px auto 30px 30px 2fr 0.5fr;
 }
 
 .new-post {
@@ -55,21 +55,46 @@ body {
 .post-container, .new-post {
   box-shadow: 1px 1px 1px 1px rgba(195, 195, 195, 0.567);
   background-color: #f8f8f8;
-  width: 50vw;
+  width: 30vw;
   padding: 20px;
   border-radius: 15px;
 }
 
 .user {
-  background-color:aliceblue;
+  
 }
 
-.post-header {
+.post-header, .comment-header {
+  display: grid;
+  grid-template-columns: 6fr 1fr;
+  align-items: center;
+}
+
+.post-menu, .comment-menu {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.content {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  align-content: center;
 }
 
 .like-comment-count {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.like-comment {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+#comments {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
