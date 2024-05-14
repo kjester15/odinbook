@@ -45,6 +45,7 @@ body {
 .post-container {
   display: grid;
   grid-template-rows: 50px auto 30px 30px 2fr 0.5fr;
+  margin-bottom: 20px;
 }
 
 .new-post {
