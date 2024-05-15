@@ -1,6 +1,20 @@
 <div class="profile-body">
   <div class="user-info">
-    <%= render @user %>
+    <div>
+      <%= "[pfp placeholder]" %>
+    </div>
+    <div>
+      <%= @user.username %>
+    </div>
+    <div>
+      <%= "#{@user.followers.count} followers" %>
+    </div>
+    <div>
+      <%= "following #{@user.followees.count}" %>
+    </div>
+    <div>
+      <%= link_to "Edit Profile", edit_user_registration_path(current_user) %>
+    </div>
   </div>
   <div class="user-posts">
     <%= render @posts %>
