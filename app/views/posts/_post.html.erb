@@ -35,11 +35,9 @@
       <%= "comment button" %>
     </div>
   </div>
-  <%= tag.div id: dom_id(Post.find(post.id)) do %>
-    <% post.comments.each do |comment| %>
-      <%= turbo_frame_tag comment do %>
-        <%= render "comments/comment", comment: comment %>
-      <% end %>
+  <%= tag.div id: dom_id(Post.find(post.id), :comments) do %>
+    <% post.comments.order(id: :asc).each do |comment| %>
+      <%= render "comments/comment", comment: comment %>
     <% end %>
   <% end %>
   <%= tag.div id: dom_id(Post.find(post.id), :add) do %>

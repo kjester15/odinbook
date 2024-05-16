@@ -1,1 +1,1 @@
-<%= turbo_stream.append dom_id(Post.find(@comment.post_id)), @comment %>
+<%= turbo_stream.append dom_id(Post.find(@comment.post_id), :comments), @comment %>
