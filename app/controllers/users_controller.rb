@@ -9,6 +9,6 @@ class UsersController < ApplicationController
     else
       @user = current_user
     end
-    @posts = @user.posts.all
+    @posts = @user.posts.all.order(id: :desc)
   end
 end
