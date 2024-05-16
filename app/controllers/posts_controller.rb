@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   def index
-    @posts = Post.all.order(id: :desc)
+    @followees = []
+    current_user.followees.each do |followee|
+      @followees << followee.id
+    end
+    @posts = Post.where(user_id: current_user).or(Post.where(user_id: @followees)).order(id: :desc)
   end
 
   def show
