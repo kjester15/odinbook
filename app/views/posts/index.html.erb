@@ -1,8 +1,10 @@
-<div class="new-post">
-  <%= turbo_frame_tag "new_post" do %>
-    <%= link_to "New Post", new_post_path %>
-  <% end %>
-</div>
-<div id="posts">
-  <%= render @posts %>
+<div class="page-container">
+  <div class="new-post">
+    <%= turbo_frame_tag "new_post" do %>
+      <%= link_to "New Post", new_post_path %>
+    <% end %>
+  </div>
+  <div id="posts">
+    <%= render @posts %>
+  </div>
 </div>

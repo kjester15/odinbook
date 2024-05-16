@@ -17,11 +17,12 @@
 .header {
   background-color: #f8f8f8;
   width: 100vw;
+  height: 50px;
   display: flex;
   justify-content: center;
   grid-template-rows: 1fr 1fr;
   box-shadow: 2px 2px 3px rgba(195, 195, 195, 0.567);
-  /* position: fixed; */
+  position: fixed;
 }
 
 .link-container {
@@ -40,6 +41,10 @@ body {
   flex-direction: column;
   align-items: center;
   height: 100vh;
+}
+
+.page-container {
+  margin-top: 60px;
 }
 
 .post-container {
@@ -61,8 +66,9 @@ body {
   border-radius: 15px;
 }
 
-.user {
-  
+.users {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .post-header, .comment-header {
@@ -108,5 +114,10 @@ body {
 .user-show-display {
   display: grid;
   grid-template-columns: 1fr 3fr;
+  margin-bottom: 20px;
+}
+
+.user-info {
+  margin-top: 20px;
   margin-bottom: 20px;
 }
