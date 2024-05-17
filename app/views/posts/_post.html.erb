@@ -28,7 +28,11 @@
       </div>
     </div>
     <div>
-      <%= "#{post.comments.count} Comments"%>
+      <% if post.comments.count == 1 %>
+        <%= "#{post.comments.count} Comment"%>
+      <% else %>
+        <%= "#{post.comments.count} Comments"%>
+      <% end %>
     </div>
   </div>
   <%= tag.div id: dom_id(Post.find(post.id), :comments) do %>
