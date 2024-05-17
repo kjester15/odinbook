@@ -1,8 +1,10 @@
 <div>
-  <% follow = current_user.followee_follows.find_by(followee_id: user.id) %>
-  <% if follow.nil? %>
-    <%= button_to "Follow", follows_path({"follow"=>{followee_id: user.id, follower_id: current_user}}) %>
-  <% else %>
-    <%= button_to "Unfollow", follow_path(follow), method: :delete %>
+  <% if user != current_user %>
+    <% follow = current_user.followee_follows.find_by(followee_id: user.id) %>
+    <% if follow.nil? %>
+      <%= button_to "Follow", follows_path({"follow"=>{followee_id: user.id, follower_id: current_user}}) %>
+    <% else %>
+      <%= button_to "Unfollow", follow_path(follow), method: :delete %>
+    <% end %>
   <% end %>
 </div>
