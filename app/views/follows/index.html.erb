@@ -1,0 +1,46 @@
+<div class="page-container">
+  <div class="followers">
+    <div>Followers:</div>
+    <div class="user-show-display">
+      <% @follows.where(followee_id: current_user).each do |follow| %>
+        <% user = User.find(follow.follower_id) %>
+        <div>
+          <%= render "follows/follow_button", user: user %>
+        </div>
+        <div>
+          <div>
+            <%= "Username: #{user.username}"%>
+          </div>
+          <div>
+            <%= "Email: #{user.email}" %>
+          </div>
+          <div>
+            <%= "ID: #{user.id}" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="following">
+    <div>Following:</div>
+    <div class="user-show-display">
+      <% @follows.where(follower_id: current_user).each do |follow| %>
+        <% user = User.find(follow.followee_id) %>
+        <div>
+          <%= render "follows/follow_button", user: user %>
+        </div>
+        <div>
+          <div>
+            <%= "Username: #{user.username}"%>
+          </div>
+          <div>
+            <%= "Email: #{user.email}" %>
+          </div>
+          <div>
+            <%= "ID: #{user.id}" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -7,10 +7,10 @@
       <%= @user.username %>
     </div>
     <div>
-      <%= "#{@user.followers.count} followers" %>
+      <%= link_to "#{@user.followers.count} followers", follows_path %>
     </div>
     <div>
-      <%= "following #{@user.followees.count}" %>
+      <%= link_to "following #{@user.followees.count}", follows_path %>
     </div>
     <div>
       <%= link_to "Edit Profile", edit_user_registration_path(current_user) %>

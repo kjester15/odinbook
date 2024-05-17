@@ -1,4 +1,8 @@
 class FollowsController < ApplicationController
+  def index
+    @follows = Follow.where(followee_id: current_user).or(Follow.where(follower_id: current_user))
+  end
+
   def new
     @follow = Follow.new
   end
