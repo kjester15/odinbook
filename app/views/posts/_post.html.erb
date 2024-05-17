@@ -19,20 +19,16 @@
     <%= post.content %><br>
   </div>
   <div class="like-comment-count">
-    <div>
-      <% like_text = post.likes.count == 1 ? "Like" : "Likes" %>
-      <%= "#{post.likes.count} #{like_text}" %>
+    <div class="likes">
+      <div class="like-count">
+        <%= post.likes.count %>
+      </div>
+      <div class="like-button">
+        <%= render "likes/like", post_id: post.id, post: post %>
+      </div>
     </div>
     <div>
       <%= "#{post.comments.count} Comments"%>
-    </div>
-  </div>
-  <div class="like-comment">
-    <div>
-      <%= render "likes/like", post_id: post.id, post: post %>
-    </div>
-    <div>
-      <%= "comment button" %>
     </div>
   </div>
   <%= tag.div id: dom_id(Post.find(post.id), :comments) do %>

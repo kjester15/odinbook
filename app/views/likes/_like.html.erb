@@ -1,7 +1,7 @@
 <div class="like-container">
   <% like = current_user.likes.find_by(post_id: post.id) %>
   <% if like.nil? %>
-    <%= button_to "Like", likes_path({"like"=>{post_id: post}}) %>
+    <%= button_to "Like", likes_path({"like"=>{post_id: post}}), :class => "like-button" %>
   <% else %>
     <%= button_to "Unlike", like_path(like), method: :delete %>
   <% end %>

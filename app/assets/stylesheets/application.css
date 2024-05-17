@@ -49,7 +49,7 @@ body {
 
 .post-container {
   display: grid;
-  grid-template-rows: 50px auto 30px 30px auto auto;
+  grid-template-rows: 50px auto 30px auto auto;
   margin-bottom: 20px;
 }
 
@@ -94,9 +94,9 @@ body {
   align-items: center;
 }
 
-.like-comment {
+.likes {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto auto;
   justify-items: center;
   align-items: center;
 }
