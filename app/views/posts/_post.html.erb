@@ -40,9 +40,9 @@
       <%= render "comments/comment", comment: comment %>
     <% end %>
   <% end %>
-  <div id="add-comment">
+  <%= tag.div id: dom_id(Post.find(post.id), :add_comment) do %>
     <%= turbo_frame_tag "add_comment" do %>
       <%= link_to "Add Comment", new_post_comment_path(post.id) %>
     <% end %>
-  </div>
+  <% end %>
 </div>
