@@ -14,22 +14,7 @@
   </header>
   <body>
     <div class="header">
-      <div class="link-container">
-        <% if user_signed_in? %>
-          <div class="link">
-            <%= link_to "Home", root_path %>
-          </div>
-          <div class="link">
-            <%= link_to "Users", users_path %>
-          </div>
-          <div class="link">
-            <%= link_to "Profile", user_path(current_user) %>
-          </div>
-          <div class="link">
-            <%= button_to "Logout", destroy_user_session_path, method: :delete %>
-          </div>
-        <% end %>
-      </div>
+      <%= render "layouts/nav" %>
     </div>
     <%= yield %>
   </body>
