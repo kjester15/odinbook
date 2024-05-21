@@ -13,16 +13,24 @@
  *= require_tree .
  *= require_self
  */
+ * {
+  font-family: sans-serif;
+ }
 
 .header {
   background-color: #f8f8f8;
   width: 100vw;
   height: 50px;
   display: flex;
-  justify-content: center;
-  grid-template-rows: 1fr 1fr;
+  justify-content: space-between;
   box-shadow: 2px 2px 3px rgba(195, 195, 195, 0.567);
   position: fixed;
+}
+
+.site-name {
+  justify-content: center;
+  align-content: center;
+  margin: 10px;
 }
 
 .link-container {
