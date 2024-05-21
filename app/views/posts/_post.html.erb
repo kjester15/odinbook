@@ -27,13 +27,13 @@
         <%= render "likes/like", post_id: post.id, post: post %>
       </div>
     </div>
-    <div>
+    <%= tag.div id: dom_id(Post.find(post.id), :comment_count) do %>
       <% if post.comments.count == 1 %>
         <%= "#{post.comments.count} Comment"%>
       <% else %>
         <%= "#{post.comments.count} Comments"%>
       <% end %>
-    </div>
+    <% end %>
   </div>
   <%= tag.div id: dom_id(Post.find(post.id), :comments) do %>
     <% post.comments.order(id: :asc).each do |comment| %>
