@@ -1,7 +1,7 @@
 <div class="page-container">
   <div class="user-info">
     <div>
-      <%= "[pfp placeholder]" %>
+      <%= image_tag "#{@user.image}", style: 'height:50px;width:50px' %>
     </div>
     <div>
       <%= @user.username %>
