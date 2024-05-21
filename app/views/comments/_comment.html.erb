@@ -2,7 +2,13 @@
   <div class="comment-container">
     <div class="comment-header">
       <div>
-        <%= "[pfp] #{User.find(comment.user_id).username}" %>
+        <% user = User.find(comment.user_id) %>
+        <div>
+          <%= image_tag "#{user.image}" %>
+        </div>
+        <div>
+          <%= user.username %>
+        </div>
       </div>
       <div class="comment-menu">
         <% if comment.user_id == current_user.id %>

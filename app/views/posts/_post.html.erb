@@ -1,8 +1,12 @@
 <div class="post-container">
   <div class="post-header">
     <div class="user">
-      <%= "[pfp]" %>
-      <%= post.user.username %><br>
+      <div>
+        <%= image_tag "#{post.user.image}" %>
+      </div>
+      <div>
+        <%= post.user.username %><br>
+      </div>
     </div>
     <div class="post-menu">
       <% if post.user_id == current_user.id %>
