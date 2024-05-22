@@ -11,7 +11,7 @@
     <div class="post-menu">
       <% if post.user_id == current_user.id %>
         <div>
-          <%= link_to "Edit", edit_post_path(post.id) %>
+          <%= link_to "Edit", edit_post_path(post.id), method: :get %>
         </div>
         <div>
           <%= button_to "Delete", post_path(post.id), method: :delete %>

@@ -1,7 +1,7 @@
 <%= tag.div id: dom_id(Comment.find(comment.id)) do %>
   <div class="comment-container">
     <div class="comment-header">
-      <div>
+      <div class="user">
         <% user = User.find(comment.user_id) %>
         <div>
           <%= image_tag "#{user.image}" %>
