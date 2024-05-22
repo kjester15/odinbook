@@ -12,10 +12,24 @@
  *
 
 /* // Custom bootstrap variables must be set or imported *before* bootstrap. */
-@import "bootstrap";
-
 * {
-font-family: sans-serif;
+  font-family: sans-serif;
+}
+
+button, input {
+  background-color: #04AA6D; /* Green */
+  border: none;
+  color: white;
+  padding: 7px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+textarea {
+  width: 100%;
 }
 
 .header {
@@ -40,6 +54,11 @@ font-family: sans-serif;
 
 .link {
   padding: 10px;
+}
+
+a {
+  color: #04AA6D;
+  text-decoration: none;
 }
 
 body {

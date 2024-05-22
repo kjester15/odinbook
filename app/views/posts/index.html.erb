@@ -1,7 +1,7 @@
 <div class="page-container">
   <div id="new-post" class="new-post">
     <%= turbo_frame_tag "new_post" do %>
-      <%= link_to "New Post", new_post_path %>
+      <%= button_to "New Post", new_post_path, method: :get %>
     <% end %>
   </div>
   <div id="posts">
