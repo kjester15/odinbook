@@ -1,19 +1,13 @@
 <div class="user-show-display">
-  <div>
-    <%= render "follows/follow_button", user: user %>
-  </div>
-  <div>
-    <div>
+  <div class="user-info-index">
+    <div class="">
       <%= image_tag "#{user.image}" %>
     </div>
     <div>
-      <%= "Username: #{user.username}"%>
+      <%= user.username %>
     </div>
-    <div>
-      <%= "Email: #{user.email}" %>
-    </div>
-    <div>
-      <%= "ID: #{user.id}" %>
-    </div>
+  </div>
+  <div class="follow">
+    <%= render "follows/follow_button", user: user %>
   </div>
 </div>

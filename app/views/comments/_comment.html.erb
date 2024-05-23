@@ -6,7 +6,7 @@
         <div>
           <%= image_tag "#{user.image}" %>
         </div>
-        <div>
+        <div class="comment-user">
           <%= user.username %>
         </div>
       </div>
@@ -15,8 +15,8 @@
           <div>
             <%= link_to "Edit", edit_post_comment_path(comment.post_id, comment.id) %>
           </div>
-          <div>
-            <%= button_to "Delete", post_comment_path(comment.post_id, comment.id), method: :delete, data: { turbo_frame: "_top" } %>
+          <div class="comment-delete">
+            <%= button_to "x", post_comment_path(comment.post_id, comment.id), method: :delete, data: { turbo_frame: "_top" } %>
           </div>
         <% end %>
       </div>
