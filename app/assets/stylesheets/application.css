@@ -2,7 +2,7 @@
   font-family: sans-serif;
 }
 
-button {
+button, .submit {
   background-color: #04AA6D; /* Green */
   border: none;
   color: white;
