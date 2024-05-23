@@ -2,7 +2,7 @@
   font-family: sans-serif;
 }
 
-button, input {
+button {
   background-color: #04AA6D; /* Green */
   border: none;
   color: white;
@@ -13,6 +13,7 @@ button, input {
   font-size: 16px;
   border-radius: 5px;
   z-index: 1;
+  cursor: pointer;
 }
 
 button:hover {
@@ -21,6 +22,7 @@ button:hover {
 
 textarea {
   width: 100%;
+  resize: none;
 }
 
 .header {
@@ -53,6 +55,7 @@ a {
   color: #04AA6D;
   padding: 10px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 a:hover {
@@ -171,9 +174,33 @@ body {
   align-items: center;
 }
 
-#comments {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.like-thumb, .like-thumb-outline {
+  height: 25px;
+  width: 25px;
+  display:block;
+  cursor: pointer;
+}
+
+.like-thumb {
+  background: url("thumb-up") no-repeat center;
+}
+
+.like-thumb-outline {
+  background: url("thumb-up-outline") no-repeat center;
+}
+
+.like-thumb:hover, .like-thumb-outline:hover {
+  background-color: rgb(255, 255, 255);
+}
+
+.comment-content {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+div[id^="comments_post"] {
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
 div[id^="add_comment"] {
@@ -183,12 +210,6 @@ div[id^="add_comment"] {
 .comment-container {
   margin-top: 10px;
   margin-bottom: 10px;
-}
-
-.comment-delete button {
-  border-radius: 50%;
-  padding: 0px;
-  margin: 0px;
 }
 
 .user-show-display {
