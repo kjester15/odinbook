@@ -16,7 +16,7 @@
             <%= link_to "Edit", edit_post_comment_path(comment.post_id, comment.id) %>
           </div>
           <div>
-            <%= button_to "Delete", post_comment_path(comment.post_id, comment.id), method: :delete, data: { turbo_frame: "_top" } %>
+            <%= button_to "", post_comment_path(comment.post_id, comment.id), method: :delete, data: { turbo_frame: "_top" }, class: "delete" %>
           </div>
         <% end %>
       </div>

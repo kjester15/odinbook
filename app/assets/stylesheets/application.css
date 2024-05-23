@@ -177,7 +177,7 @@ body {
   align-items: center;
 }
 
-.like-thumb, .like-thumb-outline {
+.like-thumb, .like-thumb-outline, .delete {
   height: 25px;
   width: 25px;
   display:block;
@@ -192,7 +192,11 @@ body {
   background: url("thumb-up-outline") no-repeat center;
 }
 
-.like-thumb:hover, .like-thumb-outline:hover {
+.delete {
+  background: url("trash-can-outline") no-repeat center;
+}
+
+.like-thumb:hover, .like-thumb-outline:hover, .delete:hover {
   background-color: rgb(255, 255, 255);
 }
 
