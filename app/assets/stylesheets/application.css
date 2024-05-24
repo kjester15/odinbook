@@ -190,14 +190,20 @@ body {
 
 .like-thumb-outline {
   background: url("thumb-up-outline") no-repeat center;
+  transition: 0.3s;
+}
+
+.like-thumb:hover, .like-thumb-outline:hover {
+  background: url("thumb-up") no-repeat center;
 }
 
 .delete {
   background: url("trash-can-outline") no-repeat center;
+  transition: 0.3s;
 }
 
-.like-thumb:hover, .like-thumb-outline:hover, .delete:hover {
-  background-color: rgb(255, 255, 255);
+.delete:hover {
+  background: url("trash-can") no-repeat center;
 }
 
 .comment-content {

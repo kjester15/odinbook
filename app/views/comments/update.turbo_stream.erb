@@ -1,9 +1,9 @@
-<%= tag.div id: dom_id(Comment.find(comment.id)) do %>
+<%= turbo_stream.update dom_id(Comment.find(@comment.id)) do %>
   <%= turbo_frame_tag "edit_comment" do %>
     <div class="comment-container">
       <div class="comment-header">
         <div class="user">
-          <% user = User.find(comment.user_id) %>
+          <% user = User.find(@comment.user_id) %>
           <div>
             <%= image_tag "#{user.image}" %>
           </div>
@@ -12,18 +12,18 @@
           </div>
         </div>
         <div class="comment-menu">
-          <% if comment.user_id == current_user.id %>
+          <% if @comment.user_id == current_user.id %>
             <div>
-              <%= link_to "Edit", edit_post_comment_path(comment.post_id, comment.id) %>
+              <%= link_to "Edit", edit_post_comment_path(@comment.post_id, @comment.id) %>
             </div>
             <div>
-              <%= button_to "", post_comment_path(comment.post_id, comment.id), method: :delete, data: { turbo_frame: "_top" }, class: "delete" %>
+              <%= button_to "", post_comment_path(@comment.post_id, @comment.id), method: :delete, data: { turbo_frame: "_top" }, class: "delete" %>
             </div>
           <% end %>
         </div>
       </div>
       <div class="comment-content">
-        <%= comment.content %>
+        <%= @comment.content %>
       </div>
     </div>
   <% end %>

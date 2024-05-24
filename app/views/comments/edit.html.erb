@@ -1,4 +1,4 @@
-<%= turbo_frame_tag @comment do %>
+<%= turbo_frame_tag "edit_comment" do %>
   <%= form_with model: [ @post, @comment ], url: [ @post, @comment ] do |f| %>
     <%= f.text_area :content, placeholder: @comment.content %><br>
     <%= f.submit "Submit", class: "submit" %>
