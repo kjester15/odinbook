@@ -1,4 +1,4 @@
-<div class="page-container">
+<%= turbo_frame_tag "edit_post" do %>
   <%= form_with model: @post do |f| %>
     <div class="post-form">
       <div>
@@ -9,4 +9,5 @@
       </div>
     </div>
   <% end %>
-</div>
+<% end %>
+

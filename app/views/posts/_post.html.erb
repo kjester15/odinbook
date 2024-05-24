@@ -1,27 +1,31 @@
 <div class="post-container">
-  <div class="post-header">
-    <div class="user">
-      <div>
-        <%= image_tag "#{post.user.image}" %>
-      </div>
-      <div class="post-user">
-        <%= post.user.username %><br>
-      </div>
-    </div>
-    <div class="post-menu">
-      <% if post.user_id == current_user.id %>
-        <div>
-          <%= link_to "Edit", edit_post_path(post.id), method: :get %>
+  <%= tag.div id: dom_id(Post.find(post.id), :edit) do %>
+    <%= turbo_frame_tag "edit_post" do %>
+      <div class="post-header">
+        <div class="user">
+          <div>
+            <%= image_tag "#{post.user.image}" %>
+          </div>
+          <div class="post-user">
+            <%= post.user.username %><br>
+          </div>
         </div>
-        <div>
-          <%= button_to "", post_path(post.id), method: :delete, class: "delete" %>
+        <div class="post-menu">
+          <% if post.user_id == current_user.id %>
+            <div>
+              <%= link_to "Edit", edit_post_path(post.id), method: :get %>
+            </div>
+            <div>
+              <%= button_to "", post_path(post.id), method: :delete, class: "delete" %>
+            </div>
+          <% end %>
         </div>
-      <% end %>
-    </div>
-  </div>
-  <div class="content">
-    <%= post.content %><br>
-  </div>
+      </div>
+      <div class="content">
+        <%= post.content %><br>
+      </div>
+    <% end %>
+  <% end %>
   <div class="like-comment-count">
     <div class="likes">
       <div class="like-count">

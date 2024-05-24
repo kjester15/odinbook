@@ -36,10 +36,14 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
 
-    if @post.update(post_params)
-      redirect_to @post
-    else
-      render :edit, status: :unprocessable_entity
+    respond_to do |format|
+      if @post.update(post_params)
+        # redirect_to posts_path(@post.id)
+        format.turbo_stream
+      else
+        # render :new, status: :unprocessable_entity
+        format.html { render :edit, status: :unprocessable_entity }
+      end
     end
   end
 
