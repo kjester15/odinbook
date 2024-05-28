@@ -9,7 +9,7 @@ class LikesController < ApplicationController
     if @like.save
       redirect_to request.referrer
     else
-      redirect_to posts_path, status: :unprocessable_entity
+      redirect_to request.referrer, status: :unprocessable_entity
     end
   end
 
