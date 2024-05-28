@@ -14,7 +14,9 @@
   </header>
   <body>
     <div class="header">
-      <div class="site-name">Jester Network</div>
+      <div class="site-name">
+        <%= link_to "Jester Network", root_path, method: :get %>
+      </div>
       <%= render "layouts/nav" %>
     </div>
     <%= yield %>
