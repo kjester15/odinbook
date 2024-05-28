@@ -1,19 +1,27 @@
 <div class="page-container">
   <div class="user-info-show">
     <div>
-      <%= image_tag "#{@user.image}", style: 'height:50px;width:50px' %>
+      <%= image_tag "#{@user.image}" %>
     </div>
-    <div>
+    <div class="username-show">
       <%= @user.username %>
     </div>
-    <div>
-      <%= link_to "#{@user.followers.count} followers", follows_path %>
+    <div class="follows">
+      <div>
+        <%= link_to "#{@user.followers.count} followers", follows_path %>
+      </div>
+      <div>
+        <%= link_to "following #{@user.followees.count}", follows_path %>
+      </div>
     </div>
     <div>
-      <%= link_to "following #{@user.followees.count}", follows_path %>
-    </div>
-    <div>
-      <%= link_to "Edit Profile", edit_user_registration_path(current_user) %>
+      <% if @user == current_user %>
+        <%= link_to "Edit Profile", edit_user_registration_path(current_user) %>
+      <% else %>
+        <div class="follow">
+          <%= render "follows/follow_button", user: @user %>
+        </div>
+      <% end %>
     </div>
   </div>
   <div class="user-posts">

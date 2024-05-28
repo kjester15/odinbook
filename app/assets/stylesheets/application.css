@@ -141,6 +141,29 @@ body {
   width: 50px;
 }
 
+.user-info-show {
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  grid-template-rows: auto auto 50px 30px;
+}
+
+.follows {
+  display: flex;
+  align-items: center;
+}
+
+.user-info-show img {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+
+.username-show {
+  font-size: 36px;
+  font-weight: 600;
+}
+
 .post-header, .comment-header {
   display: grid;
   grid-template-columns: 6fr 2fr;
