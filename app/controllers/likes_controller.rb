@@ -7,7 +7,7 @@ class LikesController < ApplicationController
     @like = current_user.likes.build(like_params)
 
     if @like.save
-      redirect_to posts_path
+      redirect_to request.referrer
     else
       redirect_to posts_path, status: :unprocessable_entity
     end
@@ -16,7 +16,7 @@ class LikesController < ApplicationController
   def destroy
     @like = Like.find(params[:id])
     @like.destroy
-    redirect_to posts_path
+    redirect_to request.referrer
   end
 
   private
