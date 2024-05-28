@@ -1,10 +1,10 @@
 <div class="user-show-display">
   <div class="user-info-index">
-    <div class="">
+    <div>
       <%= image_tag "#{user.image}" %>
     </div>
-    <div>
-      <%= user.username %>
+    <div class="username-index">
+      <%= link_to "#{user.username}", user_path(user.id) %>
     </div>
   </div>
   <div class="follow">

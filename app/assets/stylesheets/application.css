@@ -108,7 +108,7 @@ body {
   margin-bottom: 20px;
 }
 
-.post-container, .new-post {
+.post-container, .new-post, .user-show-display {
   box-shadow: 1px 1px 1px 1px rgba(195, 195, 195, 0.567);
   background-color: #f8f8f8;
   width: 33vw;
@@ -254,29 +254,36 @@ div[id^="add_comment"] {
 .user-show-display {
   display: grid;
   grid-template-columns: 3fr 1fr;
-  width: 65%;
   margin-bottom: 10px;
   margin-top: 10px;
-  border: solid;
-  border-color: #acacac;
-  border-radius: 5px;
-}
-
-.user-info-show {
-  margin-top: 20px;
-  margin-bottom: 20px;
 }
 
 .user-info-index {
   display: grid;
   grid-template-columns: 1fr 3fr;
   padding: 10px;
+  align-items: center;
+}
+
+.username-index {
+  font-size: 18px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.username-index a {
+  color: black;
 }
 
 .user-info-index img {
   border-radius: 50%;
   height: 90px;
   width: 90px;
+}
+
+.user-info-show {
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .follow {
