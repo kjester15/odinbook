@@ -5,6 +5,10 @@
     <% end %>
   </div>
   <div id="posts">
-    <%= render @posts %>
+    <% if @posts.empty? %>
+      <h3>Make a post or follow another user to join the conversation!</h3>
+    <% else %>
+      <%= render @posts %>
+    <% end %>
   </div>
 </div>
