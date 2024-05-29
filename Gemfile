@@ -83,3 +83,5 @@ gem 'bootstrap', '~> 5.3.3'
 gem 'dartsass-sprockets'
 
 gem 'jquery-rails'
+
+gem "letter_opener", group: :development
