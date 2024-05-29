@@ -16,7 +16,7 @@
               <%= link_to "Edit", edit_post_path(post.id), method: :get %>
             </div>
             <div>
-              <%= button_to "", post_path(post.id), method: :delete, class: "delete" %>
+              <%= button_to "", post_path(post.id), method: :delete, data: { turbo_frame: "_top" }, class: "delete" %>
             </div>
           <% end %>
         </div>
