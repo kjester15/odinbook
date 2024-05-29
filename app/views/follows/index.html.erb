@@ -1,42 +1,41 @@
 <div class="page-container">
-  <div class="followers">
-    <div>Followers:</div>
-    <div class="user-show-display">
+  <div class="follow-data" data-controller="toggle" data-toggle-hide-class="hide" data-toggle-primary-class="select">
+    <div class="follow-buttons">
+      <button data-action="click->toggle#follower" data-toggle-target="button">Followers</button>
+      <button data-action="click->toggle#following" data-toggle-target="button">Following</button>
+    </div>
+    <div class="followers" data-toggle-target="follower">
       <% @follows.where(followee_id: current_user).each do |follow| %>
         <% user = User.find(follow.follower_id) %>
-        <div>
-        </div>
-        <div>
-          <div>
-            <%= "Username: #{user.username}"%>
+        <div class="user-show-display">
+          <div class="user-info-index">
+            <div>
+              <%= image_tag "#{user.image}" %>
+            </div>
+            <div class="username-index">
+              <%= link_to "#{user.username}", user_path(user.id) %>
+            </div>
           </div>
-          <div>
-            <%= "Email: #{user.email}" %>
-          </div>
-          <div>
-            <%= "ID: #{user.id}" %>
+          <div class="follow">
+            <%= render "follows/follow_button", user: user %>
           </div>
         </div>
       <% end %>
     </div>
-  </div>
-  <div class="following">
-    <div>Following:</div>
-    <div class="user-show-display">
+    <div class="following" data-toggle-target="following">
       <% @follows.where(follower_id: current_user).each do |follow| %>
         <% user = User.find(follow.followee_id) %>
-        <div>
-          <%= render "follows/follow_button", user: user %>
-        </div>
-        <div>
-          <div>
-            <%= "Username: #{user.username}"%>
+        <div class="user-show-display">
+          <div class="user-info-index">
+            <div>
+              <%= image_tag "#{user.image}" %>
+            </div>
+            <div class="username-index">
+              <%= link_to "#{user.username}", user_path(user.id) %>
+            </div>
           </div>
-          <div>
-            <%= "Email: #{user.email}" %>
-          </div>
-          <div>
-            <%= "ID: #{user.id}" %>
+          <div class="follow">
+            <%= render "follows/follow_button", user: user %>
           </div>
         </div>
       <% end %>

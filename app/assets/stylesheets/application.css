@@ -116,6 +116,13 @@ body {
   border-radius: 15px;
 }
 
+.follow-data {
+  width: 33vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .users {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -151,6 +158,14 @@ body {
 .follows {
   display: flex;
   align-items: center;
+}
+
+.follow-buttons {
+  display: flex;
+}
+
+.follow-buttons button {
+  margin: 20px;
 }
 
 .user-info-show img {
@@ -290,4 +305,12 @@ div[id^="add_comment"] {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.hide {
+  display: none;
+}
+
+.select {
+  transform: scale(1.2);
 }
