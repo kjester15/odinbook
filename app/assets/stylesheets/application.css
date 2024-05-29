@@ -120,7 +120,7 @@ body {
   margin-bottom: 20px;
 }
 
-.post-container, .new-post, .user-show-display {
+.post-container, .new-post, .user-show-display, .about-container {
   box-shadow: 1px 1px 1px 1px rgba(195, 195, 195, 0.567);
   background-color: #f8f8f8;
   width: 33vw;
@@ -329,4 +329,14 @@ div[id^="add_comment"] {
 
 .edit .field {
   margin: 10px 0px 10px 0px;
+}
+
+.about {
+  margin-bottom: 30px;
+}
+
+.about-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
