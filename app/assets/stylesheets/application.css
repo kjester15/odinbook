@@ -87,6 +87,14 @@ body {
   margin: 10px;
 }
 
+.post-user a, .comment-user a {
+  color: black;
+}
+
+.post-user a:hover, .comment-user a:hover {
+  background: none;
+}
+
 .post-user {
   font-size: 18px;
   font-weight: 600;
