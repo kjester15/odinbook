@@ -4,7 +4,11 @@
       <%= image_tag "#{user.image}" %>
     </div>
     <div class="username-index">
-      <%= link_to "#{user.username}", user_path(user.id) %>
+      <% if user == current_user %>
+        <%= link_to "#{user.username}", profile_path %>
+      <% else %>
+        <%= link_to "#{user.username}", user_path(user.id) %>
+      <% end %>
     </div>
   </div>
   <div class="follow">

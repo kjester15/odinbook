@@ -8,7 +8,11 @@
             <%= image_tag "#{user.image}" %>
           </div>
           <div class="comment-user">
-            <%= link_to "#{user.username}", user_path(user.id), data: { turbo_frame: "_top" } %>
+            <% if user == current_user %>
+              <%= link_to "#{user.username}", profile_path, data: { turbo_frame: "_top" } %>
+            <% else %>
+              <%= link_to "#{user.username}", user_path(user.id), data: { turbo_frame: "_top" } %>
+            <% end %>
           </div>
         </div>
         <div class="comment-menu">
