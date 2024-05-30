@@ -7,7 +7,7 @@ class UserMailer < ApplicationMailer
   #
   def welcome_email(user)
     @user = user
-    @greeting = "Welcome to the Jester Network!"
+    @url = "https://odinbook1-775e707d163a.herokuapp.com/"
 
     mail(to: @user.email, subject: "Welcome!")
   end
