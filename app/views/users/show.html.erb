@@ -8,10 +8,10 @@
     </div>
     <div class="follows">
       <div>
-        <%= link_to "#{@user.followers.count} followers", follows_path %>
+        <%= link_to "#{@user.followers.count} followers", follows_path(:user_id => @user.id) %>
       </div>
       <div>
-        <%= link_to "following #{@user.followees.count}", follows_path %>
+        <%= link_to "following #{@user.followees.count}", follows_path(:user_id => @user.id) %>
       </div>
     </div>
     <div>

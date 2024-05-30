@@ -5,7 +5,7 @@
       <button data-action="click->toggle#following" data-toggle-target="button">Following</button>
     </div>
     <div class="followers" data-toggle-target="follower">
-      <% @follows.where(followee_id: current_user).each do |follow| %>
+      <% @follows.where(followee_id: @user).each do |follow| %>
         <% user = User.find(follow.follower_id) %>
         <div class="user-show-display">
           <div class="user-info-index">
@@ -23,7 +23,7 @@
       <% end %>
     </div>
     <div class="following" data-toggle-target="following">
-      <% @follows.where(follower_id: current_user).each do |follow| %>
+      <% @follows.where(follower_id: @user).each do |follow| %>
         <% user = User.find(follow.followee_id) %>
         <div class="user-show-display">
           <div class="user-info-index">

@@ -1,6 +1,8 @@
 class FollowsController < ApplicationController
   def index
-    @follows = Follow.where(followee_id: current_user).or(Follow.where(follower_id: current_user))
+    p params
+    @user = params[:user_id]
+    @follows = Follow.where(followee_id: params[:user_id]).or(Follow.where(follower_id: params[:user_id]))
   end
 
   def new
