@@ -30,7 +30,12 @@
         </div>
       </div>
       <div class="content">
-        <%= post.content %>
+        <div class="content-text">
+          <%= post.content %>
+        </div>
+        <div class="content-img">
+          <%= image_tag post.image %>
+        </div>
       </div>
     <% end %>
   <% end %>
