@@ -4,7 +4,11 @@
       <div class="post-header">
         <div class="user">
           <div>
-            <%= image_tag "#{post.user.image}" %>
+            <% if post.user.image.nil? %>
+              <%= image_tag "default-profile-icon.jpeg" %>
+            <% else %>
+              <%= image_tag "#{post.user.image}" %>
+            <% end %>
           </div>
           <div class="post-user">
             <% if post.user == current_user %>

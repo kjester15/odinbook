@@ -1,7 +1,11 @@
 <div class="page-container">
   <div class="user-info-show">
     <div>
-      <%= image_tag "#{@user.image}" %>
+      <% if @user.image.nil? %>
+        <%= image_tag "default-profile-icon.jpeg" %>
+      <% else %>
+        <%= image_tag "#{@user.image}" %>
+      <% end %>
     </div>
     <div class="username-show">
       <%= @user.username %>
