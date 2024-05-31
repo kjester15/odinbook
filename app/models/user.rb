@@ -15,6 +15,8 @@ class User < ApplicationRecord
   # source: :followee matches with the belong_to :followee identification in the Follow model
   has_many :followees, through: :followee_follows, source: :followee, dependent: :destroy
 
+  has_one_attached :avatar
+
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
