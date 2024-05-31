@@ -10,7 +10,11 @@
         <div class="user-show-display">
           <div class="user-info-index">
             <div>
-              <%= image_tag "#{user.image}" %>
+              <% if user.image.nil? %>
+                <%= image_tag "default-profile-icon.jpeg" %>
+              <% else %>
+                <%= image_tag "#{user.image}" %>
+              <% end %>
             </div>
             <div class="username-index">
               <%= link_to "#{user.username}", user_path(user.id) %>
@@ -28,7 +32,11 @@
         <div class="user-show-display">
           <div class="user-info-index">
             <div>
-              <%= image_tag "#{user.image}" %>
+              <% if user.image.nil? %>
+                <%= image_tag "default-profile-icon.jpeg" %>
+              <% else %>
+                <%= image_tag "#{user.image}" %>
+              <% end %>
             </div>
             <div class="username-index">
               <%= link_to "#{user.username}", user_path(user.id) %>
