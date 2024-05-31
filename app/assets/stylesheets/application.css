@@ -91,7 +91,7 @@ body {
   color: black;
 }
 
-.post-user a:hover, .comment-user a:hover {
+.post-user a:hover, .comment-user a:hover, .username-index a:hover {
   background: none;
 }
 
