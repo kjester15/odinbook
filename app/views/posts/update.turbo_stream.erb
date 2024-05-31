@@ -29,7 +29,10 @@
           <%= @post.content %>
         </div>
         <div>
-          <%= image_tag @post.image %>
+          <% begin %>
+            <%= image_tag @post.image %>
+          <% rescue %>
+          <% end %>
         </div>
       </div>
   <% end %>
