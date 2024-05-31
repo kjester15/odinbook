@@ -340,3 +340,12 @@ div[id^="add_comment"] {
   flex-direction: column;
   align-items: center;
 }
+
+#error_explanation {
+  background: #ff6363 !important;
+  padding: 10px !important;
+  border-radius: 5px !important;
+  display: inline-block !important;
+  box-shadow: 1px 1px 1px #aaaaaa;
+  margin: 10px;
+}
