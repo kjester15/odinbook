@@ -5,6 +5,10 @@
         <%= f.text_area :content, placeholder: "What would you like to share?" %>
       </div>
       <div>
+        <%= f.label :image %>
+        <%= f.file_field :image %>
+      </div>
+      <div>
         <%= f.submit "Submit", class: "submit" %>
       </div>
     </div>
