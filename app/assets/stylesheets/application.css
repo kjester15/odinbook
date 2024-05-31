@@ -218,6 +218,17 @@ body {
   padding-top: 30px;
   padding-bottom: 30px;
   align-content: center;
+  display: grid;
+}
+
+.content-text {
+  margin-bottom: 10px;
+}
+
+.content img {
+  width: 33vw;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
 .like-comment-count {

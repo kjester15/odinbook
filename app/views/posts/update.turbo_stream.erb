@@ -3,7 +3,11 @@
     <div class="post-header">
         <div class="user">
           <div>
-            <%= image_tag "#{@post.user.image}" %>
+            <% if @post.user.image.nil? %>
+              <%= image_tag "default-profile-icon.jpeg" %>
+            <% else %>
+              <%= image_tag "#{@post.user.image}" %>
+            <% end %>
           </div>
           <div class="post-user">
             <%= @post.user.username %><br>
@@ -21,7 +25,12 @@
         </div>
       </div>
       <div class="content">
-        <%= @post.content %><br>
+        <div class="content-text">
+          <%= @post.content %>
+        </div>
+        <div>
+          <%= image_tag @post.image %>
+        </div>
       </div>
   <% end %>
 <% end %>
