@@ -29,9 +29,8 @@
           <%= @post.content %>
         </div>
         <div>
-          <% begin %>
+          <% if @post.image.attached? %>
             <%= image_tag @post.image %>
-          <% rescue %>
           <% end %>
         </div>
       </div>
