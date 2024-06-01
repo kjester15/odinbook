@@ -4,7 +4,9 @@
       <div class="post-header">
         <div class="user">
           <div>
-            <% if post.user.image.nil? %>
+            <% if post.user.avatar.attached? %>
+              <%= image_tag post.user.avatar %>
+            <% elsif post.user.image.nil? %>
               <%= image_tag "default-profile-icon.jpeg" %>
             <% else %>
               <%= image_tag "#{post.user.image}" %>

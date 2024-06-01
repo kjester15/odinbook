@@ -5,7 +5,9 @@
         <div class="user">
           <% user = User.find(comment.user_id) %>
           <div>
-            <% if user.image.nil? %>
+            <% if user.avatar.attached? %>
+              <%= image_tag user.avatar %>
+            <% elsif user.image.nil? %>
               <%= image_tag "default-profile-icon.jpeg" %>
             <% else %>
               <%= image_tag "#{user.image}" %>

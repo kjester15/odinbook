@@ -1,7 +1,9 @@
 <div class="user-show-display">
   <div class="user-info-index">
     <div>
-      <% if user.image.nil? %>
+      <% if user.avatar.attached? %>
+        <%= image_tag user.avatar %>
+      <% elsif user.image.nil? %>
         <%= image_tag "default-profile-icon.jpeg" %>
       <% else %>
         <%= image_tag "#{user.image}" %>
