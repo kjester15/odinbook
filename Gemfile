@@ -85,3 +85,5 @@ gem 'dartsass-sprockets'
 gem 'jquery-rails'
 
 gem "letter_opener", group: :development
+
+gem 'active_storage_validations'
