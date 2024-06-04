@@ -362,11 +362,16 @@ div[id^="add_comment"] {
   align-items: center;
 }
 
-#error_explanation {
+.errors {
   background: #ff6363 !important;
   padding: 10px !important;
   border-radius: 5px !important;
   display: inline-block !important;
   box-shadow: 1px 1px 1px #aaaaaa;
   margin: 10px;
+  color: white;
+}
+
+.error-message {
+  list-style: none;
 }

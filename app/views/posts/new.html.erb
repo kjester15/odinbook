@@ -2,9 +2,9 @@
   <%= form_with model: @post do |f| %>
     <div class="post-form">
       <% if @post.errors.any? %>
-        <ul>
+        <ul class="errors">
           <% @post.errors.full_messages.each do |message| %>
-            <%= message %>
+            <li class="error-message"><%= message %></li>
           <% end %>
         </ul>
       <% end %>
