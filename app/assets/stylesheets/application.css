@@ -124,16 +124,21 @@ body {
   margin-top: 20px;
 }
 
+div[id^="edit_post"] {
+  max-width: 100%;
+}
+
 .post-container {
-  display: grid;
-  grid-template-rows: auto auto auto auto auto;
+  display: flex;
+  flex-direction: column;
+  /* grid-template-rows: auto auto auto auto auto; */
   margin-bottom: 20px;
 }
 
 .post-container, .new-post, .user-show-display, .about-container {
   box-shadow: 1px 1px 1px 1px rgba(195, 195, 195, 0.567);
   background-color: #f8f8f8;
-  width: clamp(300px, 33vw, 800px);
+  width: clamp(300px, 33vw, 600px);
   padding: 20px;
   border-radius: 15px;
 }
@@ -218,15 +223,17 @@ body {
   padding-top: 30px;
   padding-bottom: 30px;
   align-content: center;
-  display: grid;
+  display: flex;
+  flex-direction: column;
 }
 
 .content-text {
   margin-bottom: 10px;
+  word-wrap: break-word;
 }
 
 .content img {
-  width: clamp(300px, 33vw, 800px);
+  width: clamp(300px, 33vw, 600px);
   border-radius: 10px;
   margin-top: 10px;
 }
