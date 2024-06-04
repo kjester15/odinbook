@@ -133,7 +133,7 @@ body {
 .post-container, .new-post, .user-show-display, .about-container {
   box-shadow: 1px 1px 1px 1px rgba(195, 195, 195, 0.567);
   background-color: #f8f8f8;
-  width: 33vw;
+  width: clamp(300px, 33vw, 800px);
   padding: 20px;
   border-radius: 15px;
 }
@@ -226,7 +226,7 @@ body {
 }
 
 .content img {
-  width: 33vw;
+  width: clamp(300px, 33vw, 800px);
   border-radius: 10px;
   margin-top: 10px;
 }
