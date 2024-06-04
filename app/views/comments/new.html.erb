@@ -1,5 +1,12 @@
 <%= turbo_frame_tag "add_comment" do %>
   <%= form_with model: [ @post, @comment ], url: [ @post, @comment ] do |f| %>
+    <% if @comment.errors.any? %>
+      <ul class="errors">
+        <% @comment.errors.full_messages.each do |message| %>
+          <li class="error-message"><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <%= f.text_area :content, placeholder:"Write a comment..." %><br>
     <%= f.submit "Submit", class: "submit" %>
   <% end %>

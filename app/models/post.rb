@@ -4,6 +4,8 @@ class Post < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_one_attached :image
 
+  validates :content, length: {maximum: 500}
+
   validate :image_or_content?
 
   validate :acceptable_image
