@@ -1,6 +1,13 @@
 <%= turbo_frame_tag "new_post" do %>
   <%= form_with model: @post do |f| %>
     <div class="post-form">
+      <% if @post.errors.any? %>
+        <ul>
+          <% @post.errors.full_messages.each do |message| %>
+            <%= message %>
+          <% end %>
+        </ul>
+      <% end %>
       <div class="field">
         <%= f.text_area :content, placeholder: "What would you like to share?" %>
       </div>

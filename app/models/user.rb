@@ -17,6 +17,21 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  validate :acceptable_avatar
+
+  def acceptable_avatar
+    return unless avatar.attached?
+
+    unless avatar.blob.byte_size <= 1.megabyte
+      errors.add(:avatar, "is too big")
+    end
+
+    acceptable_types = ["image/jpeg", "image/png", "image/jpg"]
+    unless acceptable_types.include?(image.content_type)
+      errors.add(:avatar, "must be a JPEG or PNG")
+    end
+  end
+
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
